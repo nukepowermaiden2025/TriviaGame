@@ -1,0 +1,3 @@
+.ajax is a javascript method
+that take two paramenters
+Understand what a
