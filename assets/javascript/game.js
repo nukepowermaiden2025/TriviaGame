@@ -52,12 +52,17 @@ console.log(QnAobj.Questions[1].questionText);
   
 //Set the selectors to change
     //Right answer div generation
-   let rightAnsS = $("<p>").html("You guessed"+ riAns + "right." );
-   console.log(rightAnsS);
+    let $display = $(".display-all");
+
+    let $rightAnsS = $("<p>").html("You guessed"+ riAns + "right." );
+
+    $display.append($rightAnsS);
+   
+    console.log($rightAnsS);
 
     //Wrong answer div generation
-   let wrongAnsS = $("<p>").html("You guessed"+ wrAns + "wrong." );
-    console.log(wrongAnsS);
+     let $wrongAnsS = $("<p>").html("You guessed"+ wrAns + "wrong." );
+    console.log($wrongAnsS);
     //Timer
 
 //     //Question
@@ -84,6 +89,8 @@ console.log(QnAobj.Questions[1].questionText);
 //     //key4 = image
 
 }
+
+trivia()
 
 
 
