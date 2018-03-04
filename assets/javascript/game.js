@@ -1,86 +1,118 @@
+
+ 
  //Global Variables
  var riAns = 0;
  var wrAns = 0;
  var timer;
+ 
 
-var trivia = {
-   
+
+ var QnAobj={
+    
+    Questions:[
+
+        {
+        questionText:"What is the thing",
+        ansArray: [ 
+                "dog",
+                "cat",
+                "mouse",
+                "Squirel",
+                ],
+
+        corAns: "dog",
+
+        imgSrc: "./assets/javascript/test.jpg"
+        },
+        {
+        questionText:"Where are you?",
+        ansArray: [ 
+                "beach",
+                "lake",
+                "party",
+                "outpost",
+                ],
+
+        corAns: "outpost",
+
+        imgSrc: "./assets/javascript/globe.jpg"
+        }
+
+    ]
+    
+}
+
+
+console.log(QnAobj.Questions[0].questionText)
+console.log(QnAobj.Questions[1].questionText)
+
+ trivia = {
+
+  
+    
    
 //Set the selectors to change
     //Right answer div generation
-    rightS: $("<p>").text("You guessed"+ riAns + "right." ),
+    rightAnsS: $("<p>").html("You guessed"+ riAns + "right." ),
 
     //Wrong answer div generation
-    wrongS: $("<p>").text("You guessed"+ wrAns + "wrong." ),
+    wrongAnsS: $("<p>").html("You guessed"+ wrAns + "wrong." ),
 
     //Timer
 
-    //Question
-    quesDisS:$("ques-display").text($(this).QnAobj.ques),
+//     //Question
+//     quesDisS: $("ques-display").html(QnAobj.ques),
 
-    //Answer Choice
+//     //Answer Choice
     
 
-    //Correct Ans
-    corAnsS:$("corAns-display").text($(this).QnAobj.corAns),
+//     //Correct Ans
+//     corAnsS: $('<div> class="corAns-display"</div>').html(QnAobj.corAns),
 
-    //Image shows when right answer is selected
+//     //Image shows when right answer is selected
 
-    imgKeyS:$("imgkey-display").html($(this).QnAobj.imgkey),
+//     imgKeyS: $("imgkey-display").html(QnAobj.imgkey),
 
-    //Append data to page
-
-
-
-//Make a question object
-    //key1 = question
-    //key2 = answer array optionsgit
-    //key3 = correct answer
-    //key4 = image
-
-    QnAobj:[{
-        ques:"First RandomWord Question 1",
-        ansArr:["ans1", "ans2", "ans3", "ans4"],
-        corAns:"ans1",
-        imgkey:"<img src='./assets/images/test.jpg' />"
-        }
-    ]
-    
+//     //Append data to page
 
 
 
-
-
-
-
-
+// //Make a question object
+//     //key1 = question
+//     //key2 = answer array optionsgit
+//     //key3 = correct answer
+//     //key4 = image
 
 }
 
 
 
-//Functions
-    //Randomly chooses questions
-    //Process player guess
-    //Process questions asked
-    //Resets Timer
-    //Reset Game
-
-//Set the timeer & display first Question
-
-//Display the oject . question 
-//Display the object . answer array
-//Count Down Timer
-
-//If player guesses correctly
-    //Call Timer Reset
-    //Increment Right
-//Else player guess wrong
-    //Call Timer Reset
-    //Increment Wrong Answer
+// var connet = $("display-all");
 
 
 
+// //Functions
+//     //Randomly chooses questions
+//     //Process player guess
+//     //Process questions asked
+//     //Resets Timer
+//     //Reset Game
+
+// //Set the timeer & display first Question
+
+// //Display the oject . question 
+// //Display the object . answer array
+// //Count Down Timer
+
+// //If player guesses correctly
+//     //Call Timer Reset
+//     //Increment Right
+// //Else player guess wrong
+//     //Call Timer Reset
+//     //Increment Wrong Answer
+
+
+// })
 
 
    
