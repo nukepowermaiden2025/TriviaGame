@@ -3,7 +3,9 @@
  //Global Variables
  var riAns = 0;
  var wrAns = 0;
- var timer;
+ var timer = "00:00";
+
+ console.log(riAns,wrAns,timer)
  
 
 
@@ -40,24 +42,22 @@
 
     ]
     
-}
+};
 
 
-console.log(QnAobj.Questions[0].questionText)
-console.log(QnAobj.Questions[1].questionText)
+console.log(QnAobj.Questions[0].questionText);
+console.log(QnAobj.Questions[1].questionText);
 
- trivia = {
-
+ function trivia() {
   
-    
-   
 //Set the selectors to change
     //Right answer div generation
-    rightAnsS: $("<p>").html("You guessed"+ riAns + "right." ),
+   let rightAnsS = $("<p>").html("You guessed"+ riAns + "right." );
+   console.log(rightAnsS);
 
     //Wrong answer div generation
-    wrongAnsS: $("<p>").html("You guessed"+ wrAns + "wrong." ),
-
+   let wrongAnsS = $("<p>").html("You guessed"+ wrAns + "wrong." );
+    console.log(wrongAnsS);
     //Timer
 
 //     //Question
