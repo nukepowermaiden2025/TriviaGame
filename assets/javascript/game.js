@@ -14,7 +14,7 @@
     Questions:[
 
         {
-        questionText:"What is the thing",
+        ques:"What is the thing",
         ansArray: [ 
                 "dog",
                 "cat",
@@ -27,7 +27,7 @@
         imgSrc: "./assets/javascript/test.jpg"
         },
         {
-        questionText:"Where are you?",
+        ques:"Where are you?",
         ansArray: [ 
                 "beach",
                 "lake",
@@ -40,40 +40,44 @@
         imgSrc: "./assets/javascript/globe.jpg"
         }
 
-    ]
-    
-};
+    ]};
 
+    console.log(QnAobj.Questions[0].ques);
+    console.log(QnAobj.Questions[1].ques);
 
-console.log(QnAobj.Questions[0].questionText);
-console.log(QnAobj.Questions[1].questionText);
-
- function trivia() {
+function trivia() {
   
-//Set the selectors to change
-    //Right answer div generation
+    ////////Set the selectors/////////////////////////////////////////
+   
     let $display = $(".display-all");
 
-    let $rightAnsS = $("<p>").html("You guessed"+ riAns + "right." );
-
+     //Right answer div generation
+    let $rightAnsS = $("<p>").html("You guessed "+ riAns + " right." );
     $display.append($rightAnsS);
-   
     console.log($rightAnsS);
 
     //Wrong answer div generation
-     let $wrongAnsS = $("<p>").html("You guessed"+ wrAns + "wrong." );
+    let $wrongAnsS = $("<p>").html("You guessed "+ wrAns + " wrong." );
+    $display.append($wrongAnsS);
     console.log($wrongAnsS);
+
     //Timer
+    //??????????????????????????
 
-//     //Question
-//     quesDisS: $("ques-display").html(QnAobj.ques),
-
-//     //Answer Choice
+    //Question
+    let $quesDisS = $("<p>").html(QnAobj.Questions[1].ques);
+    $display.append($quesDisS);
+    console.log($quesDisS);
     
 
-//     //Correct Ans
-//     corAnsS: $('<div> class="corAns-display"</div>').html(QnAobj.corAns),
+    //Answer Choices
+    //????????????????????????????
+    
 
+    //Correct Ans
+    let $corAnsS = $('<p>').html(QnAobj.Questions[1].corAns);
+    $display.append($corAnsS);
+    console.log($corAnsS);
 //     //Image shows when right answer is selected
 
 //     imgKeyS: $("imgkey-display").html(QnAobj.imgkey),
