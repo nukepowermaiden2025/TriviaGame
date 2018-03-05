@@ -45,11 +45,13 @@
     console.log(QnAobj.Questions[0].ques);
     console.log(QnAobj.Questions[1].ques);
 
+    
+
 function trivia() {
   
     ////////Set the selectors/////////////////////////////////////////
-   
-    let $display = $(".display-all");
+    var $display = $(".display-all");
+    
 
      //Right answer div generation
     let $rightAnsS = $("<p>").html("You guessed "+ riAns + " right." );
@@ -72,12 +74,22 @@ function trivia() {
 
     //Answer Choices
     //????????????????????????????
+    function $ansArrS ($arr) {
+        for (i in $arr ){
+            let ansArrItem = $("<p>").html($arr[i]);
+            ansArrItem.addClass("center");
+            $(".display-all").append(ansArrItem);  
+        }
+    };
     
+    $ansArrS( QnAobj.Questions[1].ansArray);
+    // console.log(JSON.stringify($ansArrS()));
+
 
     //Correct Ans
     let $corAnsS = $('<p>').html(QnAobj.Questions[1].corAns);
     $display.append($corAnsS);
-    console.log($corAnsS);
+    console.log(JSON.stringify($corAnsS));
 //     //Image shows when right answer is selected
 
 //     imgKeyS: $("imgkey-display").html(QnAobj.imgkey),
