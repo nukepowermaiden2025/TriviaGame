@@ -7,7 +7,11 @@
 
  console.log(riAns,wrAns,timer)
  
-
+// //Make a question object
+//     //key1 = question
+//     //key2 = answer array optionsgit
+//     //key3 = correct answer
+//     //key4 = image
 
  var QnAobj={
     
@@ -56,12 +60,12 @@ function trivia() {
      //Right answer div generation
     let $rightAnsS = $("<p>").html("You guessed "+ riAns + " right." );
     $display.append($rightAnsS);
-    console.log($rightAnsS);
+    console.log($rightAnsS);//Expected
 
     //Wrong answer div generation
     let $wrongAnsS = $("<p>").html("You guessed "+ wrAns + " wrong." );
     $display.append($wrongAnsS);
-    console.log($wrongAnsS);
+    console.log($wrongAnsS);//Expected
 
     //Timer
     //??????????????????????????
@@ -69,7 +73,7 @@ function trivia() {
     //Question
     let $quesDisS = $("<p>").html(QnAobj.Questions[1].ques);
     $display.append($quesDisS);
-    console.log($quesDisS);
+    console.log($quesDisS);//Expected
     
 
     //Answer Choices
@@ -83,7 +87,7 @@ function trivia() {
     };
     
     $ansArrS( QnAobj.Questions[1].ansArray);
-    // console.log(JSON.stringify($ansArrS()));
+    console.log(JSON.stringify($ansArrS()));
 
 
     //Correct Ans
@@ -98,19 +102,11 @@ function trivia() {
 
 
 
-// //Make a question object
-//     //key1 = question
-//     //key2 = answer array optionsgit
-//     //key3 = correct answer
-//     //key4 = image
+
 
 }
 
 trivia()
-
-
-
-// var connet = $("display-all");
 
 
 
