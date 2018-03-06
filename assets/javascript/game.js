@@ -1,9 +1,44 @@
 
- 
+
+
+window.onload = function(){
+    // $(".display-time").text("30:00");
+    
+
+};
+
+var stopwatch = {
+
+    time: 0,
+    lap: 1,
+
+    reset: function(){
+        //set the stop watch variable to starting time and starting interval
+        stopwatch.time = 30;
+        stopwatch.lap = 1;
+        //I need to reset the timer to 30 seconds on the page
+        $(".display-time").text("30:00");
+    },
+
+   
+ };
+
+stopwatch.reset();
+function trivia() {
+  
  //Global Variables
  var riAns = 0;
  var wrAns = 0;
- var timer = "00:00";
+ var timer;
+ var interval;
+ var clockRunning = false;
+
+
+
+
+
+    
+
 
  console.log(riAns,wrAns,timer)
  
@@ -51,8 +86,7 @@
 
     
 
-function trivia() {
-  
+
     ////////Set the selectors/////////////////////////////////////////
     var $display = $(".display-all");
     
@@ -99,10 +133,6 @@ function trivia() {
 //     imgKeyS: $("imgkey-display").html(QnAobj.imgkey),
 
 //     //Append data to page
-
-
-
-
 
 }
 
