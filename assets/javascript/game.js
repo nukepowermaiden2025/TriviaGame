@@ -19,6 +19,7 @@ function trivia() {
  var timer;
  var interval;
  var clockRunning = false;
+ var $display = $(".display-all");
     
 
  console.log(riAns,wrAns,timer)
@@ -102,7 +103,7 @@ function trivia() {
 
     
     ////////Set the selectors/////////////////////////////////////////
-    var $display = $(".display-all");
+    
     
     
      //Right/wrong answer div generation//REFACTOR TO TWO argument function here**
@@ -123,8 +124,8 @@ function trivia() {
     //Timer
     //??????????????????????????
 
-    //Question with Answer Choices
-    function QuestionDisplay($arr){
+    //Question with Answer Choices REFACTOR to take two arguments
+    function questionDisplay($arr){
 
         let $quesDisS = $("<p>").html(QnAobj.Questions[1].ques);
         $display.append($quesDisS);
@@ -137,23 +138,16 @@ function trivia() {
         };
     }
 
-    QuestionDisplay(QnAobj.Questions[1].ansArray);
+    questionDisplay(QnAobj.Questions[1].ansArray);
     
 
-    
-    //????????????????????????????
-    // function $ansArrS ($arr) {
-        
-    // };
-    
-    // $ansArrS( QnAobj.Questions[1].ansArray);
-    // console.log(JSON.stringify($ansArrS()));
+    function correctAnswerDisplay(){
+        let $corAnsS = $('<p>').html(QnAobj.Questions[1].corAns);
+        $display.append($corAnsS);
+    }
+    correctAnswerDisplay();
+  
 
-
-    //Correct Ans
-    let $corAnsS = $('<p>').html(QnAobj.Questions[1].corAns);
-    $display.append($corAnsS);
-    console.log(JSON.stringify($corAnsS));
 //     //Image shows when right answer is selected
 
 //     imgKeyS: $("imgkey-display").html(QnAobj.imgkey),
