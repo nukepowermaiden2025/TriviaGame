@@ -111,7 +111,7 @@ console.log(QnAobj.Questions[1].ques);
 
 
 
-    //Right/wrong answer div generation//REFACTOR TO TWO argument function here**
+//Right/wrong answer div generation//REFACTOR TO TWO argument function here**
 function rightWrong(){
     let $rightAnsS = $("<p>").html("You guessed "+ riAns + " right." );
     let $wrongAnsS = $("<p>").html("You guessed "+ wrAns + " wrong." );
@@ -138,9 +138,11 @@ function questionDisplay($arr){
 
     for (i in $arr ){
         let ansArrItem = $("<p>").html($arr[i]);
-        ansArrItem.addClass("center");
+        ansArrItem.addClass("center choice");
         $(".display-all").append(ansArrItem);  
+
     };
+
 }
 
 // questionDisplay(QnAobj.Questions[1].ansArray);
@@ -171,17 +173,21 @@ function trivia() {
 //Construct game Logic
 
 //Step 1
-    //Player presses Button
+    //Player presses Button to get first question / timer starts
     $(".start").on("click", function(){
-        console.log("startworks")
-
+        stopwatch.reset();
+        questionDisplay(QnAobj.Questions[1].ansArray);
+        stopwatch.start();    
     })
-    //Pause 2 seconds
-    //Question from pbject is displayed
-    //Clock Starts
+
 
 //Step 2
      //If player clicks on right answer
+
+    //  $(".choice").onclick($(this), function(){
+    //      if($(this)==QnAobj.Questions[1].)
+
+    //  }
         //Display the "that's correct" message
         //pause half second
         //Display question object image
