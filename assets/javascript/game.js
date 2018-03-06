@@ -1,18 +1,18 @@
 
 
 
-window.onload = function(){
-    $(".start").on("click",stopwatch.start);
-    
-    
-    
-
-};
 
 
 
 function trivia() {
-  
+    window.onload = function(){
+        $(".start").on("click",stopwatch.start);
+        
+        
+        
+    
+    };
+    
  //Global Variables
  var riAns = 0;
  var wrAns = 0;
@@ -26,7 +26,6 @@ function trivia() {
  var stopwatch = {
 
     time: 30,
-    // lap: 1,
 
     reset: function(){
         //set the stop watch variable to starting time and starting interval
@@ -57,14 +56,13 @@ function trivia() {
  };
 
  console.log(stopwatch.start());
-
  console.log(stopwatch.reset());//Displaying clock here
  
-    // //Make a question object
-    //     //key1 = question
-    //     //key2 = answer array optionsgit
-    //     //key3 = correct answer
-    //     //key4 = image
+    //Make a question object
+        //key1 = question
+        //key2 = answer array optionsgit
+        //key3 = correct answer
+        //key4 = image
 
  var QnAobj={
     
@@ -103,43 +101,53 @@ function trivia() {
     console.log(QnAobj.Questions[1].ques);
 
     
-
-
     ////////Set the selectors/////////////////////////////////////////
     var $display = $(".display-all");
     
+    
+     //Right/wrong answer div generation//REFACTOR TO TWO argument function here**
+    function rightWrong(){
+        let $rightAnsS = $("<p>").html("You guessed "+ riAns + " right." );
+        let $wrongAnsS = $("<p>").html("You guessed "+ wrAns + " wrong." );
+        $display.append($rightAnsS);
+        $display.append($wrongAnsS);
 
-     //Right answer div generation
-    let $rightAnsS = $("<p>").html("You guessed "+ riAns + " right." );
-    $display.append($rightAnsS);
-    console.log($rightAnsS);//Expected
+        console.log($rightAnsS);
+        console.log($wrongAnsS);
 
-    //Wrong answer div generation
-    let $wrongAnsS = $("<p>").html("You guessed "+ wrAns + " wrong." );
-    $display.append($wrongAnsS);
-    console.log($wrongAnsS);//Expected
+    };
+    
+    rightWrong();
+    
 
     //Timer
     //??????????????????????????
 
-    //Question
-    let $quesDisS = $("<p>").html(QnAobj.Questions[1].ques);
-    $display.append($quesDisS);
-    console.log($quesDisS);//Expected
-    
+    //Question with Answer Choices
+    function QuestionDisplay($arr){
 
-    //Answer Choices
-    //????????????????????????????
-    function $ansArrS ($arr) {
+        let $quesDisS = $("<p>").html(QnAobj.Questions[1].ques);
+        $display.append($quesDisS);
+        console.log($quesDisS);//Expected
+
         for (i in $arr ){
             let ansArrItem = $("<p>").html($arr[i]);
             ansArrItem.addClass("center");
             $(".display-all").append(ansArrItem);  
-        }
-    };
+        };
+    }
+
+    QuestionDisplay(QnAobj.Questions[1].ansArray);
     
-    $ansArrS( QnAobj.Questions[1].ansArray);
-    console.log(JSON.stringify($ansArrS()));
+
+    
+    //????????????????????????????
+    // function $ansArrS ($arr) {
+        
+    // };
+    
+    // $ansArrS( QnAobj.Questions[1].ansArray);
+    // console.log(JSON.stringify($ansArrS()));
 
 
     //Correct Ans
@@ -158,25 +166,25 @@ trivia()
 
 
 
-// //Functions
-//     //Randomly chooses questions
-//     //Process player guess
-//     //Process questions asked
-//     //Resets Timer
-//     //Reset Game
+//Functions
+    //Randomly chooses questions
+    //Process player guess
+    //Process questions asked
+    //Resets Timer
+    //Reset Game
 
-// //Set the timeer & display first Question
+//Set the timeer & display first Question
 
-// //Display the oject . question 
-// //Display the object . answer array
-// //Count Down Timer
+//Display the oject . question 
+//Display the object . answer array
+//Count Down Timer
 
-// //If player guesses correctly
-//     //Call Timer Reset
-//     //Increment Right
-// //Else player guess wrong
-//     //Call Timer Reset
-//     //Increment Wrong Answer
+//If player guesses correctly
+    //Call Timer Reset
+    //Increment Right
+//Else player guess wrong
+    //Call Timer Reset
+    //Increment Wrong Answer
 
 
 // })
