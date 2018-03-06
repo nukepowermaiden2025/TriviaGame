@@ -2,28 +2,15 @@
 
 
 window.onload = function(){
-    // $(".display-time").text("30:00");
+    $(".start").on("click",stopwatch.start);
+    
+    
     
 
 };
 
-var stopwatch = {
 
-    time: 0,
-    lap: 1,
 
-    reset: function(){
-        //set the stop watch variable to starting time and starting interval
-        stopwatch.time = 30;
-        stopwatch.lap = 1;
-        //I need to reset the timer to 30 seconds on the page
-        $(".display-time").text("30:00");
-    },
-
-   
- };
-
-stopwatch.reset();
 function trivia() {
   
  //Global Variables
@@ -32,21 +19,52 @@ function trivia() {
  var timer;
  var interval;
  var clockRunning = false;
-
-
-
-
-
     
 
-
  console.log(riAns,wrAns,timer)
+
+ var stopwatch = {
+
+    time: 30,
+    // lap: 1,
+
+    reset: function(){
+        //set the stop watch variable to starting time and starting interval
+        stopwatch.time = 30;
+        // stopwatch.lap = 1;
+        //I need to reset the timer to 30 seconds on the page
+        $(".display-time").text("30");
+    },
+
+    //Starting the timer on the clock
+        //if the clock is not running start it
+    start: function(){
+        if(!clockRunning){
+            interval = setInterval(stopwatch.count,1000);//Count is going to tell the clock to count down
+            clockRunning = true;
+        }
+    },
+    stop: function(){
+        clearInterval(interval);//Stop the clock by clearing the setinterval
+        clockRunning = false;
+    },
+
+    count: function(){
+        stopwatch.time--;
+        $(".display-time").text(stopwatch.time);
+    },
+   
+ };
+
+ console.log(stopwatch.start());
+
+ console.log(stopwatch.reset());//Displaying clock here
  
-// //Make a question object
-//     //key1 = question
-//     //key2 = answer array optionsgit
-//     //key3 = correct answer
-//     //key4 = image
+    // //Make a question object
+    //     //key1 = question
+    //     //key2 = answer array optionsgit
+    //     //key3 = correct answer
+    //     //key4 = image
 
  var QnAobj={
     
