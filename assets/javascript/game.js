@@ -5,15 +5,6 @@
 
 
 
-
-// window.onload = function(){
-//     $(".start").on("click",stopwatch.start);
-    
-    
-    
-
-// };
-
 //Global Variables
 var riAns = 0;
 var wrAns = 0;
@@ -45,7 +36,11 @@ start: function(){
     if(!clockRunning){
         interval = setInterval(stopwatch.count,1000);//Count is going to tell the clock to count down
         clockRunning = true;
+        
     }
+    // if(stopwatch.time===0){
+    //     stopwatch.stop();
+    // }
 },
 stop: function(){
     clearInterval(interval);//Stop the clock by clearing the setinterval
@@ -62,7 +57,6 @@ count: function(){
 
 ////////Create Question Object/////////////////////////////////////////
 
-
 //Make a question object
     //key1 = question
     //key2 = answer options
@@ -74,10 +68,10 @@ var QnAobj={
 Questions:[
 
     {
-    ques:"What is the thing",
+    ques:"What is the thing?",
     ansArray: [ 
             "dog",
-            "cat",
+            "girl",
             "mouse",
             "Squirel",
             ],
@@ -110,7 +104,6 @@ console.log(QnAobj.Questions[1].ques);
 ////////Set the selectors/////////////////////////////////////////
 
 
-
 //Right/wrong answer div generation//REFACTOR TO TWO argument function here**
 function rightWrong(){
     let $rightAnsS = $("<p>").html("You guessed "+ riAns + " right." );
@@ -122,12 +115,6 @@ function rightWrong(){
     console.log($wrongAnsS);
 
 };
-
-// rightWrong();
-
-
-//Timer
-//??????????????????????????
 
 //Question with Answer Choices REFACTOR to take two arguments
 function questionDisplay($arr){
@@ -145,15 +132,10 @@ function questionDisplay($arr){
 
 }
 
-// questionDisplay(QnAobj.Questions[1].ansArray);
-
-
 function correctAnswerDisplay(){
     let $corAnsS = $('<p>').html(QnAobj.Questions[1].corAns);
     $display.append($corAnsS);
 }
-// correctAnswerDisplay();
-
 
 function imageDisplay(){
     let $imgCorAns = $('<img>');
@@ -163,31 +145,59 @@ function imageDisplay(){
 
     
 }
-// imageDisplay();
-
-
 
 
 
 function trivia() {
-//Construct game Logic
+   
+    //Step 1
+        //Player presses Button to get first question / timer starts
+        $(".start").on("click", function(){
+            stopwatch.reset();
+            questionDisplay(QnAobj.Questions[1].ansArray);
+            stopwatch.start(); 
+            $(this).hide();   
+        })//Works
 
-//Step 1
-    //Player presses Button to get first question / timer starts
-    $(".start").on("click", function(){
-        stopwatch.reset();
-        questionDisplay(QnAobj.Questions[1].ansArray);
-        stopwatch.start();    
-    })
+        console.log("works till here")
 
+    //Step 2
+        //If player clicks on right answer
+        if( stopwatch.time > 0){
+                //Then the clicked value returns 
+            console.log(QnAobj.Questions[1].corAns)
+           
+           
 
-//Step 2
-     //If player clicks on right answer
+            $(".choice").on("click", $(this), function(){
+                console.log($(this));
+                //A choice is made, stop the clock
 
-    //  $(".choice").onclick($(this), function(){
-    //      if($(this)==QnAobj.Questions[1].)
+                 //If player guesses correctly
+                    //Call Timer Reset
+                    //Increment Right
+                if($(this).text() = QnAobj.Questions[1].corAns){
+                riAns++;
+                imageDisplay();
+                stopwatch.stop();
+                stopwatch.reset();
 
-    //  }
+                }
+                 //Else player guess wrong
+                     //Call Timer Reset
+                    //Increment Wrong Answer
+                else{
+                wrAns++;
+                stopwatch.stop();
+                stopwatch.reset();
+                }  
+
+            })
+            
+        };
+        
+/////////////////////NOTES//////////////////////
+
         //Display the "that's correct" message
         //pause half second
         //Display question object image
@@ -214,16 +224,11 @@ function trivia() {
 //Display the object . answer array
 //Count Down Timer
 
-//If player guesses correctly
-    //Call Timer Reset
-    //Increment Right
-//Else player guess wrong
-    //Call Timer Reset
-    //Increment Wrong Answer
+
 
 
 }
-
+console.log(trivia())
 trivia()
 
 
