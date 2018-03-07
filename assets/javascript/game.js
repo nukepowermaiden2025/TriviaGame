@@ -1,10 +1,5 @@
 
 
-
-
-
-
-
 //Global Variables
 var riAns = 0;
 var wrAns = 0;
@@ -12,9 +7,6 @@ var timer;
 var interval;
 var clockRunning = false;
 var $display = $(".display-all");
-
-
-console.log(riAns,wrAns,timer)
 
 ////////Create Stop Watch Object/////////////////////////////////////////
 
@@ -53,7 +45,6 @@ count: function(){
 },
 
 };
-
 
 ////////Create Question Object/////////////////////////////////////////
 
@@ -97,12 +88,7 @@ Questions:[
 
 ]};
 
-console.log(QnAobj.Questions[0].ques);
-console.log(QnAobj.Questions[1].ques);
-
-
 ////////Set the selectors/////////////////////////////////////////
-
 
 //Right/wrong answer div generation//REFACTOR TO TWO argument function here**
 function rightWrong(){
@@ -110,10 +96,6 @@ function rightWrong(){
     let $wrongAnsS = $("<p>").html("You guessed "+ wrAns + " wrong." );
     $display.append($rightAnsS);
     $display.append($wrongAnsS);
-
-    console.log($rightAnsS);
-    console.log($wrongAnsS);
-
 };
 
 //Question with Answer Choices REFACTOR to take two arguments
@@ -130,71 +112,63 @@ function questionDisplay($arr){
 
     };
 
-}
+};
 
 function correctAnswerDisplay(){
     let $corAnsS = $('<p>').html(QnAobj.Questions[1].corAns);
     $display.append($corAnsS);
-}
+};
 
 function imageDisplay(){
     let $imgCorAns = $('<img>');
     $imgCorAns.attr("src", QnAobj.Questions[1].imgSrc);
     $imgCorAns.attr("width", 250);
     $display.append($imgCorAns);
-
-    
-}
-
-
+};
 
 function trivia() {
    
-    //Step 1
-        //Player presses Button to get first question / timer starts
-        $(".start").on("click", function(){
-            stopwatch.reset();
-            questionDisplay(QnAobj.Questions[1].ansArray);
-            stopwatch.start(); 
-            $(this).hide();   
-        })//Works
+//Step 1
+    //Player presses Button to get first question / timer starts
+    $(".start").on("click", function(){
+        stopwatch.reset();
+        questionDisplay(QnAobj.Questions[1].ansArray);
+        stopwatch.start(); 
+        $(this).hide();      
+    });//Works
 
-        console.log("works till here")
+    console.log(" IT ALL works till here");
 
-    //Step 2
-        //If player clicks on right answer
-        if( stopwatch.time > 0){
-                //Then the clicked value returns 
-            console.log(QnAobj.Questions[1].corAns)
-           
-           
+//Step 2
+    //If player clicks on right answer
+    // if( stopwatch.time > 0){
+            //Then the clicked value returns 
 
-            $(".choice").on("click", $(this), function(){
-                console.log($(this));
-                //A choice is made, stop the clock
+    $(".choice").on("click", function(){
+        console.log("I clicked this");
+        //A choice is made, stop the clock
 
-                 //If player guesses correctly
-                    //Call Timer Reset
-                    //Increment Right
-                if($(this).text() = QnAobj.Questions[1].corAns){
-                riAns++;
-                imageDisplay();
-                stopwatch.stop();
-                stopwatch.reset();
+            //If player guesses correctly
+            //Call Timer Reset
+            //Increment Right
+        if($(this).text() = QnAobj.Questions[1].corAns){
+        riAns++;
+        imageDisplay();
+        stopwatch.stop();
+        stopwatch.reset();
+        }
+            //Else player guess wrong
+                //Call Timer Reset
+            //Increment Wrong Answer
+        else{
+        wrAns++;
+        stopwatch.stop();
+        stopwatch.reset();
+        }  
 
-                }
-                 //Else player guess wrong
-                     //Call Timer Reset
-                    //Increment Wrong Answer
-                else{
-                wrAns++;
-                stopwatch.stop();
-                stopwatch.reset();
-                }  
-
-            })
+    })
             
-        };
+        // };
         
 /////////////////////NOTES//////////////////////
 
@@ -228,7 +202,7 @@ function trivia() {
 
 
 }
-console.log(trivia())
+
 trivia()
 
 
