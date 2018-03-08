@@ -48,7 +48,8 @@ start: function(){
             //     }
     // if(stopwatch.time===0){
     //     stopwatch.stop();
-    // }
+    //
+    }
 },
 stop: function(){
     clearInterval(interval);//Stop the clock by clearing the setinterval
