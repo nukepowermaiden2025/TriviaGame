@@ -36,8 +36,16 @@ start: function(){
     if(!clockRunning){
         interval = setInterval(stopwatch.count,1000);//Count is going to tell the clock to count down
         clockRunning = true;
-        
-    }
+       
+            // var interval = setInterval(function(){
+            //     time -= 1;
+            //     if(time === 0){
+            //         clearInterval(interval);
+            //     }
+            //     //do whatever here..
+            // }, 2000); 
+                    
+            //     }
     // if(stopwatch.time===0){
     //     stopwatch.stop();
     // }
@@ -184,6 +192,7 @@ function trivia() {
     console.log(" IT ALL works till here");
 
 //Step 2
+//One Idea is to change my 
     //If player clicks on right answer
     // if( stopwatch.time > 0){
             //Then the clicked value returns 
