@@ -107,7 +107,7 @@ function rightWrong(){
 };
 
 //Question with Answer Choices REFACTOR to take two arguments
-//An attempt at adding a promise to slow down my div so the classes add before 
+//An attempt at adding a promise to slow down my div so the classes add before click executes
 var questionDisplay = function($arr)
 
 {   $display.append($("<p>").html(QnAobj.Questions[1].ques));
@@ -126,7 +126,7 @@ var questionDisplay = function($arr)
                 });//Resolve the display of the array items
                 console.log("made it thru the promise");
             }; 
-        }, 500);//Slowdown everything with a timeout function
+        }, 500);//Slowdown everything with a timeout function so that all the items in the list resolve
         return promise;
        
     });    
@@ -151,8 +151,7 @@ $(document).ready(function()
 //    alert("(document).ready was called - document is ready!");
 
 
-function trivia() {
-   
+function trivia() {   
 //Step 1
     //Player presses Button to get first question 
     //Display the oject . question 
@@ -165,7 +164,8 @@ function trivia() {
         $.when(questionDisplay(QnAobj.Questions[1].ansArray)).then(function(){
             console.log("this should be the last message")
             
-            setTimeout( function()
+            setTimeout( function()//Test is to use the set time out to slow down the call back function for click handler
+                                    //so that divs can generate before action is taken on them.
             {
                 $(".choice").on("click",$(this),function()
                 {
@@ -174,12 +174,10 @@ function trivia() {
 
             }, 2000);
 
-            stopwatch.start(); 
-            $(this).hide();  
-
+          
         })
- 
-           
+        stopwatch.start(); 
+        $(this).hide();        
         
     });//Works
 
