@@ -1,3 +1,11 @@
+//author Kourtney Reynolds
+//The thoery behind what I want to accomplish is
+    //Create puzzle pieces in the form of
+        //variables
+        //Objects
+        //functions
+    //Put reusable puzzle pieces
+
 
 
 //Global Variables
@@ -99,19 +107,30 @@ function rightWrong(){
 };
 
 //Question with Answer Choices REFACTOR to take two arguments
-function questionDisplay($arr){
+//An attempt at adding a promise to slow down my div so the classes add before 
+var questionDisplay = function($arr)
 
-    let $quesDisS = $("<p>").html(QnAobj.Questions[1].ques);
-    $display.append($quesDisS);
-    console.log($quesDisS);//Expected
+{   $display.append($("<p>").html(QnAobj.Questions[1].ques));
 
-    for (i in $arr ){
-        let ansArrItem = $("<p>").html($arr[i]);
-        ansArrItem.addClass("center choice");
-        $(".display-all").append(ansArrItem);  
-
-    };
-
+    var promise = new Promise(function(resolve,reject)
+    {
+        setTimeout(function()
+        {
+            for (i in $arr )
+            {
+                let ansArrItem = $("<p>").html($arr[i]);
+            
+                resolve({ 
+                    answerclass: ansArrItem.addClass("center choice"),
+                    display:$(".display-all").append(ansArrItem)
+                });//Resolve the display of the array items
+                console.log("made it thru the promise");
+            }; 
+        }, 500);//Slowdown everything with a timeout function
+        return promise;
+       
+    });    
+    
 };
 
 function correctAnswerDisplay(){
@@ -126,15 +145,42 @@ function imageDisplay(){
     $display.append($imgCorAns);
 };
 
+$(document).ready(function()
+{
+   // executes when HTML-Document is loaded and DOM is ready
+//    alert("(document).ready was called - document is ready!");
+
+
 function trivia() {
    
 //Step 1
-    //Player presses Button to get first question / timer starts
-    $(".start").on("click", function(){
+    //Player presses Button to get first question 
+    //Display the oject . question 
+    //Display the object . answer array
+    //Count Down Timer
+    $(".start").on("click", function()
+    {
         stopwatch.reset();
-        questionDisplay(QnAobj.Questions[1].ansArray);
-        stopwatch.start(); 
-        $(this).hide();      
+    
+        $.when(questionDisplay(QnAobj.Questions[1].ansArray)).then(function(){
+            console.log("this should be the last message")
+            
+            setTimeout( function()
+            {
+                $(".choice").on("click",$(this),function()
+                {
+                    console.log("I clicked this");
+                });
+
+            }, 2000);
+
+            stopwatch.start(); 
+            $(this).hide();  
+
+        })
+ 
+           
+        
     });//Works
 
     console.log(" IT ALL works till here");
@@ -143,30 +189,28 @@ function trivia() {
     //If player clicks on right answer
     // if( stopwatch.time > 0){
             //Then the clicked value returns 
-
-    $(".choice").on("click", function(){
-        console.log("I clicked this");
+    
+  
         //A choice is made, stop the clock
 
             //If player guesses correctly
             //Call Timer Reset
             //Increment Right
-        if($(this).text() = QnAobj.Questions[1].corAns){
-        riAns++;
-        imageDisplay();
-        stopwatch.stop();
-        stopwatch.reset();
-        }
-            //Else player guess wrong
-                //Call Timer Reset
-            //Increment Wrong Answer
-        else{
-        wrAns++;
-        stopwatch.stop();
-        stopwatch.reset();
-        }  
-
-    })
+        // if($(this).text() = QnAobj.Questions[1].corAns){
+        // riAns++;
+        // imageDisplay();
+        // stopwatch.stop();
+        // stopwatch.reset();
+        // }
+        //     //Else player guess wrong
+        //         //Call Timer Reset
+        //     //Increment Wrong Answer
+        // else{
+        // wrAns++;
+        // stopwatch.stop();
+        // stopwatch.reset();
+        
+    
             
         // };
         
@@ -194,11 +238,6 @@ function trivia() {
 
 //Set the timeer & display first Question
 
-//Display the oject . question 
-//Display the object . answer array
-//Count Down Timer
-
-
 
 
 }
@@ -206,4 +245,4 @@ function trivia() {
 trivia()
 
 
-   
+});
