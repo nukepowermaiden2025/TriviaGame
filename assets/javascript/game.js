@@ -18,6 +18,10 @@ var $display = $(".display-all");
 
 ////////Create Stop Watch Object/////////////////////////////////////////
 
+$(document).ready(function(){
+
+
+
 var stopwatch = {
 
 time: 30,
@@ -252,5 +256,7 @@ function trivia() {
 
 trivia()
 
+
+});
 
 });
