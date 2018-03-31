@@ -186,6 +186,10 @@ function trivia() {
         
     });//Works
 
+    if(stopwatch.time===0){
+        stopwatch.stop();
+    }
+
     console.log(" IT ALL works till here");
 
 //Step 2
