@@ -1,30 +1,45 @@
 var panel = $(".display-all");
-var countStartNumber = 30;
+var 30 = 30;
 
 // Question for the player
 var questions = [{
   question: "What is the capitol city of China?",
-  answers: ["Cincinatti", "Cleveland", "Dayton", "Columbus"],
+  answers: ["Cincinatti",
+             "Cleveland",
+            "Dayton",
+            "Columbus"],
   correctAnswer: "Columbus",
   image: ""
 }, {
   question: "What is the longest River in the world?",
-  answers: ["Nile", "Amazon", "Ganges", "Niger"],
+  answers: ["Nile", 
+            "Amazon", 
+            "Ganges", 
+            "Niger"],
   correctAnswer: "Amazon",
   image: ""
 }, {
   question: "In what country is the largest body of fresh water in the world located?",
-  answers: ["China", "Austrailia", "Brasil", "USA"],
+  answers: ["China", 
+            "Austrailia", 
+            "Brasil", 
+            "USA"],
   correctAnswer: "USA",
   image: ""
 }, {
   question: "Which what is the second largest island nation in the world?",
-  answers: ["Indonesia", "Japan", "Madagascar", "Australia"],
+  answers: ["Indonesia", 
+            "Japan", 
+            "Madagascar", 
+            "Australia"],
   correctAnswer: "Madagascar",
   image: ""
 }, {
   question: "The Arctic together with what country, contains 99% of glacial mass in the world?",
-  answers: ["USA", "Canada", "Greenland", "Norway"],
+  answers: ["USA",
+            "Canada",
+            "Greenland",
+            "Norway"],
   correctAnswer: "Greenland",
   image: ""
 }];
@@ -37,18 +52,32 @@ var trivia = {
 
     questions: questions,
     currentQuestion: 0,
-    counter: countStartNumber,
+    counter: 30,
     correct: 0,
     incorrect: 0,
 
     //Reset
     reset: function() {
         this.currentQuestion = 0;
-        this.counter = countStartNumber;
+        this.counter = 30;
         this.correct = 0;
         this.incorrect = 0;
         this.loadQuestion();
     },
+    
+    //Load a question on the page
+    // loadQuestion: function() {
+
+    //     timer = setInterval(trivia.countdown, 1000);
+
+    //     //load question 0 from the 
+    //     panel.html("<h2>" + questions[this.currentQuestion].question + "</h2>");
+    //     //for the current question from questions object, load the answers
+    //     for (var i = 0; i < questions[this.currentQuestion].answers.length; i++) {
+    //       panel.append("<button class='answer-button' id='button' data-name='" + questions[this.currentQuestion].answers[i]
+    //       + "'>" + questions[this.currentQuestion].answers[i] + "</button>");
+    //     }
+    //   },
 
     //Count down the time 
     countdown: function(){

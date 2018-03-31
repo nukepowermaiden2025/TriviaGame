@@ -18,10 +18,6 @@ var $display = $(".display-all");
 
 ////////Create Stop Watch Object/////////////////////////////////////////
 
-$(document).ready(function(){
-
-
-
 var stopwatch = {
 
 time: 30,
@@ -77,32 +73,28 @@ count: function(){
 
 var QnAobj={
 
-Questions:[
-
-    {
-    ques:"What is the thing?",
+Questions:[{
+    ques: "What is the capitol city of China?",
     ansArray: [ 
-            "dog",
-            "girl",
-            "mouse",
-            "Squirel",
-            ],
+        "WuHan",
+        "Tokyo",
+       "ShangHi",
+       "Beijing"],
 
-    corAns: "dog",
+    corAns: "Beijing",
 
     imgSrc: "./assets/images/test.jpg",
 
     },
     {
-    ques:"Where are you?",
+    ques:"What is the longest River in the world?",
     ansArray: [ 
-            "beach",
-            "lake",
-            "party",
-            "outpost",
-            ],
+        "Nile", 
+        "Amazon", 
+        "Ganges", 
+        "Niger"],
 
-    corAns: "outpost",
+    corAns:"Amazon",
 
     imgSrc: "./assets/images/globe.jpg"
     }
@@ -256,7 +248,5 @@ function trivia() {
 
 trivia()
 
-
-});
 
 });
