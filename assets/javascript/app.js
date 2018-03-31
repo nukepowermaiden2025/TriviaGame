@@ -48,7 +48,7 @@ var trivia = {
         this.correct = 0;
         this.incorrect = 0;
         this.loadQuestion();
-      },
+    },
 
     //Count down the time 
     countdown: function(){
@@ -59,7 +59,7 @@ var trivia = {
             clearInterval(timer);
 
         //reset counter
-        $("#counter-number").html(trivia.counter);
+        $("#display-time").html(trivia.counter);
         // and if the time is up show the answer
         panel.html("<h2>Out of Time!</h2>");
         panel.append("<h3>The Correct Answer was: " + questions[this.currentQuestion].correctAnswer);
@@ -72,10 +72,9 @@ var trivia = {
         setTimeout(trivia.nextQuestion, 3 * 1000);
         }
             }
-        }
+    },
     //Show the results
-    //reset the game
-
+    
     
 
 }
