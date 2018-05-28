@@ -4,55 +4,64 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    
     <title>Hello, World Geography!</title>
   </head>
   <body>
    
     <div class="container">
         <div class="row">
-            <div class="col-12">#
-                <div class="jumbotron">
-                    <p><a class="btn btn-primary btn-lg start" href="#" role="button">Press Start</a></p>
-                    <h1 class="text-center">World Geography Trivia</h1>
+                <div class = "col-12">
+                    <nav class="navbar navbar-dark bg-dark">
+                        <br>
+                        <a href="https://nukepowermaiden2025.github.io/Bootstrap-Portfolio/portfolio.html" target="_blank" class="navbar-brand text-light" > &larr; Porfolio</a>
+                        <br>
+                    </nav>
+    
+                </div>
+            </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="jumbotron-fluid" id="background">
                     
+                    <header class="text-center display-4">World Geography Trivia</header>
+                   
+                   
+                   
+                    <div class="jumbotron" id="transparent">
                     <div class="row">
-
-                        <div class="col-2 empty">
-                        </div>
-
-                        <div class="col-8">
-                            <div class="jumbotron"  height="700px">
-                                <div class ="display-all">
-                                    <!-- style = "background-image: url(./assets/images/globe.jpg)" -->
-                                    <p class="text-center">Time Remaining:</p>
-                                    <div class="text-center display-time"></div>
-                                    
-                                    <!-- <p><span class="ques-display">Question Goes Here</span></p>
-
-                                    <p><span class="corAns-display">Correct Answer will show here</span></p>
-
-                                    <p><span class="imgkey-display"> Image will go here</span></p> -->
-                                    
-                                    
-                                    
+                            <div class="col-8">
+                                <div class="shadow question">
+                                        <button type="button" class="btn btn-success btn-lg btn-block">Press To Start</button>
+                                        <p class="display-4 align-text-middle text-center"> Waiting on player</p>
+                                    <div >
+                                        <!-- <p><a id="btn btn-primary btn-lg start" href="#" role="button">Press Start</a></p> -->
+                                    </div> 
                                 </div>
-                                <p><a class="btn btn-primary btn-lg play-again" href="#" role="button">Play Again?</a></p>
+                            </div>
+                        
+                        <div class="col-4">
+                            <div class="shadow">
+                                <p class="text-center ">Time Remaining:</p>
+                                <p class="display-4 align-text-middle text-center"> 30</p> 
                             </div>
                         </div>
-
-                        <div class="col-2 empty">
-                        </div>
-
-                   </div>       
+                    </div>   
+                    </div>
                 </div>
             </div>
         </div>
+   
     </div>
-            
+    <footer class="main-footer footer-copyright text-center py-3">
+        <span>&copy; 2018 Kourtney Reynolds </span>
+    </footer>      
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

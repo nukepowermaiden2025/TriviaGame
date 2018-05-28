@@ -1,5 +1,5 @@
 var panel = $(".display-all");
-var 30 = 30;
+var timer = 30;
 
 // Question for the player
 var questions = [{

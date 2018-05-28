@@ -2,3 +2,45 @@
     padding: 10px;
     background-color: grey;
 }
+.center-div{
+    margin: 0 auto;
+    width: 100px;
+}
+
+
+#background{
+    background-image: url(../images/globe.jpg);
+ 
+}
+
+/* header */
+header {
+    background-color:rgba(46, 136, 139, 0.833);
+    padding-bottom: 2%;
+    color:white;
+}
+
+#transparent{
+    background-color:transparent;
+}
+
+/* Instructions */
+.shadow{
+   background-color:rgba(255, 255, 255, 0.829);
+   padding: 10px 10px 10px 10px ;
+   
+
+}
+
+@media (min-width:369px){
+    .container{
+        min-height:calc(100vh-89px);
+    }
+
+    .shadow{
+        min-height: 300px;
+    }
+}
+
+
+
