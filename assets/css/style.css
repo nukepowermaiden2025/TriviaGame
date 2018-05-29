@@ -32,9 +32,13 @@ header {
 
 }
 
+.answers{
+    max-width:75% ;
+}
+
 @media (min-width:369px){
     .container{
-        min-height:calc(100vh-89px);
+        min-height:calc(78vh);
     }
 
     .shadow{
@@ -42,5 +46,11 @@ header {
     }
 }
 
-
-
+nav{
+    padding: 10px;
+    margin-bottom: 3%;
+}
+footer{
+    background-color: lightgrey;
+    padding-top:5px;
+}

@@ -13,8 +13,6 @@
     <title>Hello, World Geography!</title>
   </head>
   <body>
-   
-    <div class="container">
         <div class="row">
                 <div class = "col-12">
                     <nav class="navbar navbar-dark bg-dark">
@@ -22,43 +20,36 @@
                         <a href="https://nukepowermaiden2025.github.io/Bootstrap-Portfolio/portfolio.html" target="_blank" class="navbar-brand text-light" > &larr; Porfolio</a>
                         <br>
                     </nav>
-    
                 </div>
             </div>
 
+    <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="jumbotron-fluid" id="background">
-                    
                     <header class="text-center display-4">World Geography Trivia</header>
-                   
-                   
-                   
                     <div class="jumbotron" id="transparent">
-                    <div class="row">
-                            <div class="col-8">
-                                <div class="shadow question">
-                                        <button type="button" class="btn btn-success btn-lg btn-block">Press To Start</button>
-                                        <p class="display-4 align-text-middle text-center"> Waiting on player</p>
-                                    <div >
-                                        <!-- <p><a id="btn btn-primary btn-lg start" href="#" role="button">Press Start</a></p> -->
-                                    </div> 
+                        <div class="row">
+                                <div class="col-8">
+                                    <div class="shadow question">
+                                        <button type="button" class="btn btn-success btn-lg btn-block" id="start">Press To Start</button>
+                                        <div class="answers"></div>
+                                        <p class="display-4 align-text-middle text-center" id="waiting"> Waiting on player</p>  
+                                    </div>
+                                </div>
+                            <div class="col-4">
+                                <div class="shadow">
+                                    <p class="text-center ">Time Remaining:</p>
+                                    <p class="display-1 align-text-middle text-center counter">30</p> 
                                 </div>
                             </div>
-                        
-                        <div class="col-4">
-                            <div class="shadow">
-                                <p class="text-center ">Time Remaining:</p>
-                                <p class="display-4 align-text-middle text-center"> 30</p> 
-                            </div>
-                        </div>
-                    </div>   
+                        </div>   
                     </div>
                 </div>
             </div>
         </div>
-   
     </div>
+
     <footer class="main-footer footer-copyright text-center py-3">
         <span>&copy; 2018 Kourtney Reynolds </span>
     </footer>      
@@ -66,9 +57,9 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     
-    <script type="text/javascript" src="./assets/javascript/game.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+    <script type="text/javascript" src="./assets/javascript/app.js"></script>
   </body>
 </html>

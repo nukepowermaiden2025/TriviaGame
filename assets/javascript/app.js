@@ -1,15 +1,15 @@
-var panel = $(".display-all");
-var timer = 30;
-
+var panel = $(".question");
+var answerStyle = "btn btn-dark btn-lg btn-block choice";
+var questionStyle = "text-center h3 ";
 // Question for the player
 var questions = [{
   question: "What is the capitol city of China?",
-  answers: ["Cincinatti",
-             "Cleveland",
-            "Dayton",
-            "Columbus"],
-  correctAnswer: "Columbus",
-  image: ""
+  answers: ["Shanghai",
+             "Hong Kong",
+            "Wuhan",
+            "Beijing"],
+  correctAnswer: "Beijing",
+  image: "https://media3.giphy.com/media/3o6nUQlg4TSA9Hi7ss/200w.webp"
 }, {
   question: "What is the longest River in the world?",
   answers: ["Nile", 
@@ -17,7 +17,7 @@ var questions = [{
             "Ganges", 
             "Niger"],
   correctAnswer: "Amazon",
-  image: ""
+  image: "https://media.giphy.com/media/rMh05ah48wiXK/giphy.gif"
 }, {
   question: "In what country is the largest body of fresh water in the world located?",
   answers: ["China", 
@@ -25,15 +25,15 @@ var questions = [{
             "Brasil", 
             "USA"],
   correctAnswer: "USA",
-  image: ""
+  image: "https://media.giphy.com/media/65kQC6Mg4XIsw/giphy.gif"
 }, {
-  question: "Which what is the second largest island nation in the world?",
+  question: "Which is the second largest island nation in the world?",
   answers: ["Indonesia", 
             "Japan", 
             "Madagascar", 
             "Australia"],
   correctAnswer: "Madagascar",
-  image: ""
+  image: "https://media.giphy.com/media/9CVe5MXsWff9K/giphy.gif"
 }, {
   question: "The Arctic together with what country, contains 99% of glacial mass in the world?",
   answers: ["USA",
@@ -41,24 +41,23 @@ var questions = [{
             "Greenland",
             "Norway"],
   correctAnswer: "Greenland",
-  image: ""
+  image: "https://media.giphy.com/media/vBNAzpiskHO3m/giphy.gif"
 }];
 
-var timer;//variable will control the set interval method
 
 var trivia = {
 
     //Put out the initals variable for the game
 
     questions: questions,
-    currentQuestion: 0,
+    currentQuestionIndex: 0,
     counter: 30,
     correct: 0,
     incorrect: 0,
 
     //Reset
     reset: function() {
-        this.currentQuestion = 0;
+        this.currentQuestionIndex = 0;
         this.counter = 30;
         this.correct = 0;
         this.incorrect = 0;
@@ -66,44 +65,72 @@ var trivia = {
     },
     
     //Load a question on the page
-    // loadQuestion: function() {
+    loadQuestion: function(){
+      $("#waiting").hide();
+      $("#start").hide();
+      $("<div>").addClass(questionStyle)
+                .text(questions[this.currentQuestionIndex].question)
+                .appendTo(panel);
 
-    //     timer = setInterval(trivia.countdown, 1000);
+      for(let i=0; i<questions[this.currentQuestionIndex].answers.length; i++){
+      $("<button>").addClass(answerStyle)
+                  .text(questions[this.currentQuestionIndex].answers[i])
+                  .appendTo(panel);
+      }
+    },
+    // Load next question after timer runs out or 3 seconds after the correct answer is displayed
+    loadNextQuestion:function(){
 
-    //     //load question 0 from the 
-    //     panel.html("<h2>" + questions[this.currentQuestion].question + "</h2>");
-    //     //for the current question from questions object, load the answers
-    //     for (var i = 0; i < questions[this.currentQuestion].answers.length; i++) {
-    //       panel.append("<button class='answer-button' id='button' data-name='" + questions[this.currentQuestion].answers[i]
-    //       + "'>" + questions[this.currentQuestion].answers[i] + "</button>");
-    //     }
-    //   },
+    },
+
+    showCorrectAnswer:function(){
+      
+    },
 
     //Count down the time 
     countdown: function(){
-        trivia.counter--;
-        $("#display-time").text(trivia.counter);
-        if(trivia.counter ===0){
-            console.log("Your Time ran out")
-            clearInterval(timer);
+      
+    },
+    start: function(){
+     let interval = setInterval(function(){
+          trivia.counter--;
+          $(".counter").text(trivia.counter);
+          console.log(trivia.counter);
+        },1000);
 
-        //reset counter
-        $("#display-time").html(trivia.counter);
-        // and if the time is up show the answer
-        panel.html("<h2>Out of Time!</h2>");
-        panel.append("<h3>The Correct Answer was: " + questions[this.currentQuestion].correctAnswer);
-        panel.append("<img src='" + questions[this.currentQuestion].image + "' />");
+        console.log(interval);
+        //Delegate the click handler for elements that dynamically generate
+        $(".question").on("click",".choice", function(){
+            clearInterval(interval);
+            
+            console.log($(this).text());
+          });
+      
 
-        if (trivia.currentQuestion === questions.length - 1) {
-        setTimeout(trivia.results, 3 * 1000);
-        }
-        else {
-        setTimeout(trivia.nextQuestion, 3 * 1000);
-        }
-            }
+      // $("choice").on("click", function(){
+      //   this.clearInterval(interval).apply(trivia);
+      //   console.log(this)
+      // })
     },
     //Show the results
-    
-    
+    showResults: function(){
 
+    },
+
+    gamestart:function(){
+      this.start();
+      this.loadQuestion();
+      console.log("Gamestart this is : " + JSON.stringify(this));
+    }
+    
 }
+
+//Start the game on click of button
+$(document).ready(function(){
+  $("#start").on("click",function(event){
+    trivia.gamestart();
+    console.log("The context is this:" + this);
+  })
+})
+
+//Stop the Timer on click of answer
